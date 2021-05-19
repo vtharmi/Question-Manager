@@ -1,6 +1,6 @@
-import { GET_QUESTIONS } from '../types';
+import { GET_QUESTIONS } from "../types";
 // API imports
-import { GetQuestions, AddQuestion } from '../../services/api_collection';
+import { GetQuestions, AddQuestion } from "../../services/api_collection";
 
 export const getQuestions = (searchQuery) => async (dispatch) => {
   GetQuestions(searchQuery).then((response) => {
@@ -13,7 +13,7 @@ export const getQuestions = (searchQuery) => async (dispatch) => {
 export const addQuestion = (question) => async (dispatch) => {
   AddQuestion(question).then((response) => {
     if (response && response.status_code === 201) {
-      dispatch(getQuestions(''));
+      dispatch(getQuestions(""));
     }
   });
 };

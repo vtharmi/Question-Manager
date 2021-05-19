@@ -1,9 +1,9 @@
-import React, { useState } from 'react';
+import React, { useState } from "react";
 
-import { SearchContext, QuestionDialog } from './context';
+import { SearchContext, QuestionDialog } from "./context";
 
 const GlobalContext = (props) => {
-  const [searchQuery, setSearchQuery] = useState('');
+  const [searchQuery, setSearchQuery] = useState("");
   const [openQuestionDialog, setOpenQuestionDialog] = useState(false);
 
   return (

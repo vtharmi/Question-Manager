@@ -1,14 +1,11 @@
-import React, { useState, useContext } from 'react';
-import { Link } from 'react-router-dom';
-import { connect } from 'react-redux';
-import { addQuestion } from '../store/actions';
+import React, { useState, useContext } from "react";
+import { connect } from "react-redux";
+import { addQuestion } from "../store/actions";
 
 import {
   Typography,
   Button,
   TextField,
-  FormControlLabel,
-  Checkbox,
   Grid,
   Container,
   Paper,
@@ -18,47 +15,47 @@ import {
   MenuItem,
   FormHelperText,
   IconButton,
-} from '@material-ui/core';
-import CloseIcon from '@material-ui/icons/Close';
+} from "@material-ui/core";
+import CloseIcon from "@material-ui/icons/Close";
 
-import { makeStyles } from '@material-ui/core/styles';
+import { makeStyles } from "@material-ui/core/styles";
 
 // context imports
-import { QuestionDialog } from '../context/context';
+import { QuestionDialog } from "../context/context";
 
 const useStyles = makeStyles((theme) => ({
   paper: {
     padding: theme.spacing(4, 8),
-    display: 'flex',
-    flexDirection: 'column',
-    alignItems: 'center',
+    display: "flex",
+    flexDirection: "column",
+    alignItems: "center",
   },
   header: {
-    display: 'flex',
-    alignItems: 'center',
-    width: '100%',
+    display: "flex",
+    alignItems: "center",
+    width: "100%",
   },
   header_title: {
-    textAlign: 'center',
-    width: '100%',
+    textAlign: "center",
+    width: "100%",
   },
   form: {
-    width: '100%',
+    width: "100%",
     marginTop: theme.spacing(3),
   },
   create_btn: {
-    height: '50px',
+    height: "50px",
   },
 }));
 
 const menuProps = {
   anchorOrigin: {
-    vertical: 'bottom',
-    horizontal: 'left',
+    vertical: "bottom",
+    horizontal: "left",
   },
   transformOrigin: {
-    vertical: 'top',
-    horizontal: 'left',
+    vertical: "top",
+    horizontal: "left",
   },
   getContentAnchorEl: null,
 };
@@ -71,27 +68,27 @@ function CreateQuestion(props) {
   const classes = useStyles();
 
   const [question, setQuestion] = useState({
-    question: '',
-    license: '',
-    state: '',
-    category: '',
-    group: '',
-    status: '',
+    question: "",
+    license: "",
+    state: "",
+    category: "",
+    group: "",
+    status: "",
   });
 
   const [formErr, setFormErr] = useState({
     questionErr: false,
-    questionErrMsg: '',
+    questionErrMsg: "",
     licenseErr: false,
-    licenseErrMsg: '',
+    licenseErrMsg: "",
     stateErr: false,
-    stateErrMsg: '',
+    stateErrMsg: "",
     categoryErr: false,
-    categoryErrMsg: '',
+    categoryErrMsg: "",
     groupErr: false,
-    groupErrMsg: '',
+    groupErrMsg: "",
     statusErr: false,
-    statusErrMsg: '',
+    statusErrMsg: "",
   });
 
   const handleChange = (event) => {
@@ -99,13 +96,13 @@ function CreateQuestion(props) {
       setFormErr({
         ...formErr,
         [`${event.target.name}Err`]: true,
-        [`${event.target.name}ErrMsg`]: 'This field cannot be empty',
+        [`${event.target.name}ErrMsg`]: "This field cannot be empty",
       });
     } else {
       setFormErr({
         ...formErr,
         [`${event.target.name}Err`]: false,
-        [`${event.target.name}ErrMsg`]: '',
+        [`${event.target.name}ErrMsg`]: "",
       });
     }
 
@@ -122,23 +119,23 @@ function CreateQuestion(props) {
     var emptyFields = {};
     var validForm = true;
     Object.keys(question).map((field) => {
-      if (question[field] === '') {
+      if (question[field] === "") {
         validForm = false;
         emptyFields[`${field}Err`] = true;
-        emptyFields[`${field}ErrMsg`] = 'This field cannot be empty';
+        emptyFields[`${field}ErrMsg`] = "This field cannot be empty";
       }
     });
     setFormErr(emptyFields);
 
     if (validForm) {
-      if (type === 'draft') {
-        question.display = 'Draft';
+      if (type === "draft") {
+        question.display = "Draft";
         console.log(question);
 
         addQuestion(question);
         questionDialog.setOpenQuestionDialog(false);
-      } else if (type === 'published') {
-        question.display = 'Published';
+      } else if (type === "published") {
+        question.display = "Published";
         console.log(question);
 
         addQuestion(question);
@@ -294,7 +291,7 @@ function CreateQuestion(props) {
                 fullWidth
                 type="submit"
                 name="draft"
-                onClick={(event) => handleSubmit(event, 'draft')}
+                onClick={(event) => handleSubmit(event, "draft")}
               >
                 Save to Draft
               </Button>
@@ -306,7 +303,7 @@ function CreateQuestion(props) {
                 className={classes.create_btn}
                 fullWidth
                 name="published"
-                onClick={(event) => handleSubmit(event, 'published')}
+                onClick={(event) => handleSubmit(event, "published")}
               >
                 Create
               </Button>

@@ -76,7 +76,7 @@ export default function QueationTable(props) {
   const [openTooltip, setOpenTooltip] = useState({});
   const [actionAnchorEl, setActionAnchorEl] = useState(null);
   const [page, setPage] = useState(0);
-  const [rowsPerPage, setRowsPerPage] = useState(10);
+  const [rowsPerPage, setRowsPerPage] = useState(5);
 
   useEffect(() => {
     console.log(rows);
@@ -249,7 +249,7 @@ export default function QueationTable(props) {
       </TableContainer>
       {typeof rows !== "undefined" && rows.length > 0 && (
         <TablePagination
-          rowsPerPageOptions={[10, 25, 100]}
+          rowsPerPageOptions={[5, 25, 100]}
           component="div"
           count={rows.length}
           rowsPerPage={rowsPerPage}

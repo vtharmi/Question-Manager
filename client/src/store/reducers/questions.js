@@ -1,4 +1,4 @@
-import { GET_QUESTIONS } from '../types';
+import { GET_QUESTIONS } from "../types";
 
 const initialState = {
   questions: [],

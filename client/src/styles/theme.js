@@ -1,12 +1,12 @@
-import { createMuiTheme } from '@material-ui/core/styles';
+import { createMuiTheme } from "@material-ui/core/styles";
 
 const theme = createMuiTheme({
   //   palette: {},
   typography: {
     useNextVariants: true,
     fontSize: 11,
-    fontFamily: ['Montserrat', 'sans-serif', 'Helvetica Neue', 'Arial'].join(
-      ','
+    fontFamily: ["Montserrat", "sans-serif", "Helvetica Neue", "Arial"].join(
+      ","
     ),
   },
   zIndex: {
@@ -16,22 +16,22 @@ const theme = createMuiTheme({
   overrides: {
     MuiInputBase: {
       root: {
-        backgroundColor: '#e8eaf6',
+        backgroundColor: "#e8eaf6",
       },
     },
     MuiButton: {
       root: {
-        textTransform: 'none',
+        textTransform: "none",
       },
     },
     MuiBadge: {
       anchorOriginTopRightCircle: {
-        backgroundColor: '#4caf50',
+        backgroundColor: "#4caf50",
       },
     },
   },
   topBar: {
-    height: '56px',
+    height: "56px",
   },
 });
 

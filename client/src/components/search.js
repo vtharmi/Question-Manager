@@ -1,5 +1,5 @@
-import React, { useState, useContext } from 'react';
-import { makeStyles } from '@material-ui/core/styles';
+import React, { useState, useContext } from "react";
+import { makeStyles } from "@material-ui/core/styles";
 import {
   Paper,
   Grid,
@@ -9,29 +9,29 @@ import {
   Select,
   TextField,
   MenuItem,
-} from '@material-ui/core';
+} from "@material-ui/core";
 
 // context imports
-import { SearchContext } from '../context/context';
+import { SearchContext } from "../context/context";
 
 const useStyles = makeStyles((theme) => ({
   root: {
-    borderRadius: '10px',
+    borderRadius: "10px",
     padding: theme.spacing(2, 3),
   },
   search_btn: {
-    height: '50px',
+    height: "50px",
   },
 }));
 
 const menuProps = {
   anchorOrigin: {
-    vertical: 'bottom',
-    horizontal: 'left',
+    vertical: "bottom",
+    horizontal: "left",
   },
   transformOrigin: {
-    vertical: 'top',
-    horizontal: 'left',
+    vertical: "top",
+    horizontal: "left",
   },
   getContentAnchorEl: null,
 };
@@ -42,13 +42,13 @@ export default function Search(props) {
   const classes = useStyles();
 
   const [search, setSearch] = useState({
-    question: '',
-    license: 'all',
-    state: 'all',
-    category: 'all',
-    group: 'all',
-    status: 'all',
-    display: 'all',
+    question: "",
+    license: "all",
+    state: "all",
+    category: "all",
+    group: "all",
+    status: "all",
+    display: "all",
   });
 
   const handleChange = (event) => {
@@ -221,7 +221,9 @@ export default function Search(props) {
               type="submit"
               onClick={(event) => {
                 event.preventDefault();
-                searchContext.setSearchQuery(`?keyword=${search.question}`);
+                searchContext.setSearchQuery(
+                  `${search.question ? `?keyword=${search.question}` : ""}`
+                );
               }}
             >
               Search

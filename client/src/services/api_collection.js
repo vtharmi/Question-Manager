@@ -1,4 +1,4 @@
-import api from './api_config';
+import api from "./api_config";
 
 const GetQuestions = async function (query) {
   try {

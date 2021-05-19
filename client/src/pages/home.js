@@ -1,7 +1,6 @@
-import React, { useContext, useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';
-import { connect } from 'react-redux';
-import { getQuestions } from '../store/actions';
+import React, { useContext, useEffect } from "react";
+import { connect } from "react-redux";
+import { getQuestions } from "../store/actions";
 
 import {
   Container,
@@ -10,109 +9,109 @@ import {
   Grid,
   ButtonGroup,
   Dialog,
-} from '@material-ui/core';
-import { makeStyles } from '@material-ui/core/styles';
-import AddCircleIcon from '@material-ui/icons/AddCircle';
-import VisibilityOutlinedIcon from '@material-ui/icons/VisibilityOutlined';
-import CheckCircleOutlineIcon from '@material-ui/icons/CheckCircleOutline';
-import AddCircleOutlineOutlinedIcon from '@material-ui/icons/AddCircleOutlineOutlined';
-import DeleteForeverOutlinedIcon from '@material-ui/icons/DeleteForeverOutlined';
+} from "@material-ui/core";
+import { makeStyles } from "@material-ui/core/styles";
+import AddCircleIcon from "@material-ui/icons/AddCircle";
+import VisibilityOutlinedIcon from "@material-ui/icons/VisibilityOutlined";
+import CheckCircleOutlineIcon from "@material-ui/icons/CheckCircleOutline";
+import AddCircleOutlineOutlinedIcon from "@material-ui/icons/AddCircleOutlineOutlined";
+import DeleteForeverOutlinedIcon from "@material-ui/icons/DeleteForeverOutlined";
 
 // context imports
-import { SearchContext, QuestionDialog } from '../context/context';
+import { SearchContext, QuestionDialog } from "../context/context";
 
 // components
-import AppBar from '../components/app_bar';
-import Search from '../components/search';
-import QuestionTable from '../components/question_table';
-import CreateQuestion from '../components/create_question';
+import AppBar from "../components/app_bar";
+import Search from "../components/search";
+import QuestionTable from "../components/question_table";
+import CreateQuestion from "../components/create_question";
 
 // temp data import
 // import data from '../assets/json/sample.json';
 
 const useStyles = makeStyles((theme) => ({
   section_1: {
-    display: 'flex',
-    justifyContent: 'space-between',
-    alignItems: 'center',
+    display: "flex",
+    justifyContent: "space-between",
+    alignItems: "center",
   },
   button: {
-    backgroundColor: '#c5cae9',
+    backgroundColor: "#c5cae9",
   },
   footer: {
-    display: 'flex',
-    justifyContent: 'space-between',
-    alignItems: 'center',
+    display: "flex",
+    justifyContent: "space-between",
+    alignItems: "center",
     padding: theme.spacing(4, 0, 2),
   },
 }));
 
 // question table columns
 const columns = [
-  { id: 'id', label: '#', minWidth: 100 },
+  { id: "id", label: "#", minWidth: 100 },
   {
-    id: 'question',
-    label: 'Question',
+    id: "question",
+    label: "Question",
     minWidth: 300,
   },
   {
-    id: 'category',
-    label: 'Category',
+    id: "category",
+    label: "Category",
     minWidth: 100,
   },
   {
-    id: 'state',
-    label: 'State',
+    id: "state",
+    label: "State",
     minWidth: 100,
   },
   {
-    id: 'group',
-    label: 'Question Group',
+    id: "group",
+    label: "Question Group",
     minWidth: 100,
-    type: 'popover',
-    align: 'center',
+    type: "popover",
+    align: "center",
   },
   {
-    id: 'license',
-    label: 'License',
+    id: "license",
+    label: "License",
     minWidth: 100,
-    type: 'popover',
-    align: 'center',
+    type: "popover",
+    align: "center",
   },
   {
-    id: 'status',
-    label: 'Status',
+    id: "status",
+    label: "Status",
     minWidth: 100,
-    align: 'center',
+    align: "center",
   },
   {
-    id: 'display',
-    label: 'Display',
+    id: "display",
+    label: "Display",
     minWidth: 100,
-    align: 'center',
-    type: 'chip',
+    align: "center",
+    type: "chip",
   },
   {
-    id: 'action',
-    label: 'Action',
+    id: "action",
+    label: "Action",
     minWidth: 100,
-    align: 'center',
-    type: 'action',
+    align: "center",
+    type: "action",
     actions: [
       {
-        name: 'View',
+        name: "View",
         icon: <VisibilityOutlinedIcon />,
       },
       {
-        name: 'Deactivate',
+        name: "Deactivate",
         icon: <CheckCircleOutlineIcon />,
       },
       {
-        name: 'Add to Group',
+        name: "Add to Group",
         icon: <AddCircleOutlineOutlinedIcon />,
       },
       {
-        name: 'Delete',
+        name: "Delete",
         icon: <DeleteForeverOutlinedIcon />,
       },
     ],

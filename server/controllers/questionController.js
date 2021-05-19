@@ -25,6 +25,7 @@ function getQuestions(queryParam) {
       }
       console.log("keywords ", keyword);
       Question.find({ $text: { $search: keyword } })
+        .sort({ id: -1 })
         .then((result) => {
           console.log("Searched questions are ", result);
           resolve(result);
@@ -35,6 +36,7 @@ function getQuestions(queryParam) {
         });
     } else {
       Question.find()
+        .sort({ id: -1 })
         .then((result) => {
           console.log("Retreived questions are ", result);
           resolve(result);
